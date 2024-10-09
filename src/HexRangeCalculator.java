@@ -74,28 +74,28 @@ public class HexRangeCalculator {
         // add right-click listener to the outputTextArea
         outputTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent e) {
-            if (e.isPopupTrigger()) {
-                showPopup(e);
-            }
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
             }
 
             public void mouseReleased(java.awt.event.MouseEvent e) {
-            if (e.isPopupTrigger()) {
-                showPopup(e);
-            }
+                if (e.isPopupTrigger()) {
+                    showPopup(e);
+                }
             }
 
             private void showPopup(java.awt.event.MouseEvent e) {
             JPopupMenu popup = new JPopupMenu();
             JMenuItem copyItem = new JMenuItem("Copy");
-            copyItem.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                outputTextArea.copy();
-                }
-            });
-            popup.add(copyItem);
-            popup.show(e.getComponent(), e.getX(), e.getY());
+                copyItem.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        outputTextArea.copy();
+                    }
+                });
+                popup.add(copyItem);
+                popup.show(e.getComponent(), e.getX(), e.getY());
             }
         });
 
