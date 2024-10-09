@@ -91,7 +91,9 @@ public class HexRangeCalculator {
                 copyItem.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        outputTextArea.copy();
+                        StringSelection stringSelection = new StringSelection(outputTextArea.getSelectedText());
+                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                        clipboard.setContents(stringSelection, null);
                     }
                 });
                 popup.add(copyItem);
