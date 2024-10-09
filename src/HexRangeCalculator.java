@@ -74,30 +74,37 @@ public class HexRangeCalculator {
         // add right-click listener to the outputTextArea
         outputTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    showPopup(e);
-                }
+            if (e.isPopupTrigger()) {
+                showPopup(e);
+            }
             }
 
             public void mouseReleased(java.awt.event.MouseEvent e) {
-                if (e.isPopupTrigger()) {
-                    showPopup(e);
-                }
+            if (e.isPopupTrigger()) {
+                showPopup(e);
+            }
             }
 
             private void showPopup(java.awt.event.MouseEvent e) {
             JPopupMenu popup = new JPopupMenu();
             JMenuItem copyItem = new JMenuItem("Copy");
-                copyItem.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        StringSelection stringSelection = new StringSelection(outputTextArea.getSelectedText());
-                        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-                        clipboard.setContents(stringSelection, null);
-                    }
-                });
-                popup.add(copyItem);
-                popup.show(e.getComponent(), e.getX(), e.getY());
+            copyItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                String selectedText = outputTextArea.getSelectedText();
+                if (selectedText != null && !selectedText.isEmpty()) {
+                    StringSelection stringSelection = new StringSelection(selectedText);
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(stringSelection, null);
+                } else {
+                    StringSelection stringSelection = new StringSelection(outputTextArea.getText());
+                    Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+                    clipboard.setContents(stringSelection, null);
+                }
+                }
+            });
+            popup.add(copyItem);
+            popup.show(e.getComponent(), e.getX(), e.getY());
             }
         });
 
