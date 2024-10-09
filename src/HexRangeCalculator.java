@@ -64,12 +64,40 @@ public class HexRangeCalculator {
         JScrollPane outputScrollPane = new JScrollPane(outputTextArea);
         outputPanel.add(outputScrollPane, BorderLayout.CENTER);
 
-        //add the panels to the frame
+        // add the panels to the frame
         frame.add(hexPanel);
         frame.add(rangePanel);
         frame.add(buttonPanel);
         frame.add(prefixPanel);
         frame.add(outputPanel);
+
+        // add right-click listener to the outputTextArea
+        outputTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent e) {
+            if (e.isPopupTrigger()) {
+                showPopup(e);
+            }
+            }
+
+            public void mouseReleased(java.awt.event.MouseEvent e) {
+            if (e.isPopupTrigger()) {
+                showPopup(e);
+            }
+            }
+
+            private void showPopup(java.awt.event.MouseEvent e) {
+            JPopupMenu popup = new JPopupMenu();
+            JMenuItem copyItem = new JMenuItem("Copy");
+            copyItem.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                outputTextArea.copy();
+                }
+            });
+            popup.add(copyItem);
+            popup.show(e.getComponent(), e.getX(), e.getY());
+            }
+        });
 
         // add function to the button
         calculateButton.addActionListener(new ActionListener() {
