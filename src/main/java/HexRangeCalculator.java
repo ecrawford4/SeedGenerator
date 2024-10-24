@@ -6,23 +6,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * HexRangeCalculator is a calculator which is used to generate a range of seeds
+ * Seed Generator is a calculator which is used to generate a range of seeds
  * for use in RNG manipulation of Pokémon games. It requires users to input two values:
- * the hex value of the target seed,
- * and the desired range; i.e., if the range is 10, the calculator will output the following:
+ * the hex value of the target seed, and the desired range, which will always round up
+ * to the nearest odd number; i.e., if the range is 10, the calculator will output the following:
  * ...
- * the ten previous seeds
+ * 5 previous seeds
  * the provided seed
- * the ten following seeds
+ * 5 next seeds
  * ...
- * The calculator will output 2 * range + 1 seeds.
- * ...
- * written by Ethan Crawford 08/11/2024
+ * written by Ethan Crawford 10/24/2024
  */
 public class HexRangeCalculator {
     public static void main(String[] args) {
         // define the frame
-        JFrame frame = new JFrame("Hex Range Calculator");
+        JFrame frame = new JFrame("Seed Generator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 375);
         frame.setLayout(new FlowLayout(FlowLayout.LEFT));
@@ -119,16 +117,18 @@ public class HexRangeCalculator {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String hexValue = hexField.getText();                  // get the hex value from the frame
-                    int range = Integer.parseInt(rangeField.getText());    // get the range from the frame
-                    int baseValue = Integer.parseInt(hexValue, 16); // convert the hex value to int
-                    int length = (( range * 2 ) + 1);                      // calculate the length of the final output
+                    String hexValue = hexField.getText();                   // get the hex value from the frame
+                    int range = Integer.parseInt(rangeField.getText());     // get the range from the frame
+                    int baseValue = Integer.parseInt(hexValue, 16);    // convert the hex value to int
+                    if((range % 2) == 0) {                                     // calculate the length of the final output
+                        range++;
+                    }
 
                     // create the output string
                     StringBuilder result = new StringBuilder();
-                    for (int i = 0; i < length; i++) {
+                    for (int i = 0; i < range; i++) {
                         // calculate each number
-                        int currentValue = baseValue - range + i;
+                        int currentValue = baseValue - (range / 2) + i;
 
                         // convert the number to hex, append it to the string, append new line
                         result.append(Integer.toHexString(currentValue).toUpperCase()).append("\n");
