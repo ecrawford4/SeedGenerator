@@ -120,9 +120,7 @@ public class HexRangeCalculator {
                     String hexValue = hexField.getText();                   // get the hex value from the frame
                     int range = Integer.parseInt(rangeField.getText());     // get the range from the frame
                     int baseValue = Integer.parseInt(hexValue, 16);    // convert the hex value to int
-                    if((range % 2) == 0) {                                     // calculate the length of the final output
-                        range++;
-                    }
+
 
                     // create the output string
                     StringBuilder result = new StringBuilder();
