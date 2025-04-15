@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="seedgenerator:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/seedgenerator_jar</output-path>
-    <root id="archive" name="seedgenerator.jar">
-      <element id="module-output" name="seedgenerator" />
-    </root>
-  </artifact>
-</component>
