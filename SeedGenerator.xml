@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>jar\SeedGenerator-jar-with-dependencies.jar</jar>
+  <outfile>SeedGenerator.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>true</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\ethan\Documents\projects\seed-generator-new-release\jar\icon.ico</icon>
+  <classPath>
+    <mainClass>com.SeedGenerator.SeedGenerator</mainClass>
+    <cp>SeedGenerator-jar-with-dependencies.jar</cp>
+  </classPath>
+  <jre>
+    <path>jre</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>11</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.3.0.0</fileVersion>
+    <txtFileVersion>1.3.0</txtFileVersion>
+    <fileDescription>SeedGenerator</fileDescription>
+    <copyright>Copyright 2025 Ethan Crawford</copyright>
+    <productVersion>1.3.0.0</productVersion>
+    <txtProductVersion>1.3.0</txtProductVersion>
+    <productName>SeedGenerator</productName>
+    <companyName></companyName>
+    <internalName>SeedGenerator</internalName>
+    <originalFilename>SeedGenerator.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
