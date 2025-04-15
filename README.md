@@ -1,4 +1,4 @@
-# seed-generator
+# SeedGenerator
 
 SeedGenerator is a simple, standalone program written entirely in java that generates a range of hexadecimal "seeds."
 
