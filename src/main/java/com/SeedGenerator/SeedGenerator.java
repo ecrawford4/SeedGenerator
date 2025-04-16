@@ -122,7 +122,7 @@ public class SeedGenerator {
                 try {
                     String hexValue = hexField.getText();                   // get the hex value from the frame
                     int range = Integer.parseInt(rangeField.getText());     // get the range from the frame
-                    int baseValue = Integer.parseInt(hexValue, 16);    // convert the hex value to int
+                    int baseValue = Integer.parseInt(hexValue, 16);   // convert the hex value to int
 
 
                     // create the output string
